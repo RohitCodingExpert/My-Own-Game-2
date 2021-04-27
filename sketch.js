@@ -31,6 +31,9 @@ function setup() {
   
   astroidsGroup = new Group();
   
+  spaceship.setCollider("circle",0,0,400);
+  spaceship.debug = true
+  
 }
 
 function draw() {
@@ -55,6 +58,11 @@ function draw() {
     spaceship.x = spaceship.x+5;
     
   }
+   
+  if(astroidsGroup.isTouching(spaceship)){
+    gameState = "End";
+    
+  }
   
  }
     
@@ -65,7 +73,8 @@ function draw() {
    fill("red");
    textSize(50);
    text("GameOver",130,250);
-  
+   astroidsGroup.setVelocityYEach(0);
+   space.velocityY = (0);
      
    }  
    
